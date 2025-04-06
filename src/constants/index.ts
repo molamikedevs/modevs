@@ -19,25 +19,23 @@ export  const navItems = [
 export const projects: Project[] = [
 	{
 		id: 1,
-		title: 'Cosmic Dashboard',
+		title: 'Admin Dashboard',
 		description:
-			'An interactive dashboard with data visualization, real-time updates, and a responsive design.',
+			'🚀 A modern Admin Dashboard built with Syncfusion components, featuring interactive charts, grids, calendars, and more. Currently, the app uses dummy data, but it will be upgraded in the future with full backend functionality.',
 		tags: ['Frontend', 'UI/UX'],
-		image:
-			'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1000',
-		liveUrl: '#',
-		githubUrl: '#',
+		image: 'https://i.imgur.com/o1O9TJA.png',
+		liveUrl: 'https://admin-dashboard-bsjq.onrender.com',
+		githubUrl: 'https://github.com/molamikedevs/admin_dashboard.git',
 	},
 	{
 		id: 2,
-		title: 'Nexus API Platform',
+		title: 'Movie Trends',
 		description:
-			'A scalable RESTful API service with authentication, rate limiting, and comprehensive documentation.',
+			'🚀 A modern web application that displays the latest trending movies, their ratings, and the top five most searched movies. Powered by Appwrite for backend operations and the TMDb API for movie data.',
 		tags: ['Backend'],
-		image:
-			'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000',
-		liveUrl: '#',
-		githubUrl: '#',
+		image: 'https://i.imgur.com/DNKhZOz.png',
+		liveUrl: 'https://movies-app-4bz6.onrender.com',
+		githubUrl: 'https://github.com/molamikedevs/movies-trends.git',
 	},
 	{
 		id: 3,
@@ -52,7 +50,7 @@ export const projects: Project[] = [
 	},
 	{
 		id: 4,
-		title: 'Cerebral Task Manager',
+		title: 'Lockers Task Manager',
 		description:
 			'A productivity app featuring kanban boards, time tracking, and collaboration tools.',
 		tags: ['Frontend', 'Full Stack'],
@@ -63,25 +61,23 @@ export const projects: Project[] = [
 	},
 	{
 		id: 5,
-		title: 'Synapse Social',
+		title: 'YuSocial',
 		description:
-			'A social media platform with real-time messaging, content sharing, and personalized feeds.',
+			'A social media platform with real-time notification, comment on post, save posts, like and dislike posts, follow and unfollow user, infinite scrolling and personalized feeds with top creators.',
 		tags: ['Full Stack', 'Backend'],
-		image:
-			'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1000',
-		liveUrl: '#',
-		githubUrl: '#',
+		image: 'https://i.imgur.com/MTiHWip.png',
+		liveUrl: 'https://social-app-henna-theta.vercel.app/',
+		githubUrl: 'https://github.com/molamikedevs/social-app.git',
 	},
 	{
 		id: 6,
-		title: 'Atlas Weather',
+		title: 'Xora Landing Page',
 		description:
-			'A weather forecasting app with beautiful visualizations, location tracking, and accurate predictions.',
-		tags: ['Frontend', 'UI/UX'],
-		image:
-			'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?q=80&w=1000',
-		liveUrl: '#',
-		githubUrl: '#',
+			'Xora Landing Page is a sleek and modern React-based web page designed to showcase products, services, or businesses with an engaging user experience. The page is built with a focus on smooth animations, responsive design, and high performance.',
+		tags: ['UI/UX'],
+		image: 'https://i.imgur.com/MJh6U5A.png',
+		liveUrl: 'https://xora-git-master-molamikedevs-projects.vercel.app/',
+		githubUrl: 'https://github.com/molamikedevs/xora-landding-page.git',
 	},
 ]
 

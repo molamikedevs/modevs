@@ -12,7 +12,7 @@ import TerminalEasterEgg from "@/components/TerminalEasterEgg";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "Lamin Foday | Full Stack Developer";
+    document.title = 'Molamike Devs | Full Stack Developer'
   }, []);
 
   return (
