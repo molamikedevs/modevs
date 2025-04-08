@@ -96,8 +96,10 @@ const Header = () => {
 									<a
 										href={item.href}
 										className={cn(
-											'block px-4 py-2 rounded-md hover:bg-muted/50 transition-colors duration-300',
-											isActive(item.href) && 'bg-muted/80 font-medium'
+											'block px-4 py-2 rounded-md transition-colors duration-300',
+											'hover:bg-muted/50 dark:hover:bg-muted/80',
+											isActive(item.href) &&
+												'bg-primary/10 dark:bg-primary/20 text-primary font-medium'
 										)}
 										onClick={() => setMobileMenuOpen(false)}>
 										{item.name}

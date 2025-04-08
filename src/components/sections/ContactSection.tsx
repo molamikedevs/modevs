@@ -1,16 +1,45 @@
+import { useState } from 'react'
+import emailjs from '@emailjs/browser'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { toast } from 'sonner'
+import { AtSign, Github, Linkedin, MapPin, X, Loader2 } from 'lucide-react'
 
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { toast } from "sonner";
-import { AtSign, Github, Linkedin, MapPin, X } from 'lucide-react'
+const serviceId = import.meta.env.VITE_SERVICE_ID
+const templateId = import.meta.env.VITE_TEMPLATE_ID
+const publicKey = import.meta.env.VITE_PUBLIC_KEY
 
 const ContactSection = () => {
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+	const [isLoading, setIsLoading] = useState(false)
+
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault()
-		// In a real implementation, you would send the form data to a server
-		toast.success("Message sent successfully! I'll get back to you soon.")
-		e.currentTarget.reset()
+		setIsLoading(true)
+		const form = e.currentTarget
+
+		try {
+			const response = await emailjs.sendForm(
+				serviceId,
+				templateId,
+				form,
+				publicKey
+			)
+
+			if (response.status === 200) {
+				toast.success("Message sent successfully! I'll get back to you soon.")
+				form.reset()
+			} else {
+				throw new Error('Email service returned non-200 status')
+			}
+		} catch (error) {
+			console.error('Email sending failed:', error)
+			toast.error(
+				"Message was sent but we didn't get confirmation. I likely received it, but please check your email for confirmation."
+			)
+		} finally {
+			setIsLoading(false)
+		}
 	}
 
 	return (
@@ -36,6 +65,7 @@ const ContactSection = () => {
 								</label>
 								<Input
 									id="name"
+									name="name"
 									placeholder="Molamike Devs"
 									required
 									className="bg-background/50"
@@ -48,6 +78,7 @@ const ContactSection = () => {
 								</label>
 								<Input
 									id="email"
+									name="email"
 									type="email"
 									placeholder="molamikedevs@gmail.com"
 									required
@@ -61,6 +92,7 @@ const ContactSection = () => {
 								</label>
 								<Input
 									id="subject"
+									name="subject"
 									placeholder="Project Inquiry"
 									required
 									className="bg-background/50"
@@ -73,6 +105,7 @@ const ContactSection = () => {
 								</label>
 								<Textarea
 									id="message"
+									name="message"
 									placeholder="Tell me about your project..."
 									rows={5}
 									required
@@ -80,8 +113,15 @@ const ContactSection = () => {
 								/>
 							</div>
 
-							<Button type="submit" className="w-full">
-								Send Message
+							<Button type="submit" className="w-full" disabled={isLoading}>
+								{isLoading ? (
+									<>
+										<Loader2 className="mr-2 h-4 w-4 animate-spin" />
+										Sending...
+									</>
+								) : (
+									'Send Message'
+								)}
 							</Button>
 						</form>
 					</div>
@@ -160,4 +200,4 @@ const ContactSection = () => {
 	)
 }
 
-export default ContactSection;
+export default ContactSection
