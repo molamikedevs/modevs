@@ -1,29 +1,44 @@
-
-import { useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
-import ThemeToggle from "./ThemeToggle";
-import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect, useCallback } from 'react'
+import { cn } from '@/lib/utils'
+import ThemeToggle from './ThemeToggle'
+import { Menu, X } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 import { navItems } from '@/constants'
+import { useLocation } from 'react-router-dom'
 
 const Header = () => {
 	const [scrolled, setScrolled] = useState(false)
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+	const location = useLocation()
 
 	useEffect(() => {
 		const handleScroll = () => {
-			if (window.scrollY > 10) {
-				setScrolled(true)
-			} else {
-				setScrolled(false)
-			}
+			setScrolled(window.scrollY > 10)
 		}
 
 		window.addEventListener('scroll', handleScroll)
-		return () => {
-			window.removeEventListener('scroll', handleScroll)
-		}
+		return () => window.removeEventListener('scroll', handleScroll)
 	}, [])
+
+	// Helper function to check if nav item is active
+	const isActive = useCallback(
+		(href: string) => {
+			// Special case for home page
+			if (href === '#home') {
+				return location.pathname === '/' && window.scrollY < 50
+			}
+			return location.pathname === href || location.hash === href
+		},
+		[location.pathname, location.hash]
+	)
+
+	// Effect to track title changes based on the current href
+	useEffect(() => {
+		const currentItem = navItems.find(item => isActive(item.href))
+		if (currentItem) {
+			document.title = `Molamike.Devs - ${currentItem.name}`
+		}
+	}, [isActive])
 
 	return (
 		<header
@@ -46,7 +61,10 @@ const Header = () => {
 							<li key={item.name}>
 								<a
 									href={item.href}
-									className="px-4 py-2 rounded-md hover:bg-muted/50 transition-colors duration-300">
+									className={cn(
+										'px-4 py-2 rounded-md hover:bg-muted/50 transition-colors duration-300',
+										isActive(item.href) && 'bg-muted/80 font-medium'
+									)}>
 									{item.name}
 								</a>
 							</li>
@@ -77,7 +95,10 @@ const Header = () => {
 								<li key={item.name}>
 									<a
 										href={item.href}
-										className="block px-4 py-2 rounded-md hover:bg-muted/50 transition-colors duration-300"
+										className={cn(
+											'block px-4 py-2 rounded-md hover:bg-muted/50 transition-colors duration-300',
+											isActive(item.href) && 'bg-muted/80 font-medium'
+										)}
 										onClick={() => setMobileMenuOpen(false)}>
 										{item.name}
 									</a>
@@ -91,4 +112,4 @@ const Header = () => {
 	)
 }
 
-export default Header;
+export default Header
