@@ -27,7 +27,9 @@ const ContactSection = () => {
 			)
 
 			if (response.status === 200) {
-				toast.success("Message sent successfully! I'll get back to you soon.")
+				toast.success(
+					"Message sent successfully! I'll get back to you within 1 business day."
+				)
 				form.reset()
 			} else {
 				throw new Error('Email service returned non-200 status')
