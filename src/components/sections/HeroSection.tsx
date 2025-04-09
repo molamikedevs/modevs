@@ -94,7 +94,7 @@ const HeroSection = () => {
 				href="#about"
 				className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce"
 				aria-label="Scroll to About section">
-				<ArrowDownCircle className="h-8 w-8 text-muted-foreground hover:text-primary transition-colors" />
+				<ArrowDownCircle className="h-8 w-8 text-muted-foreground hover:text-primary transition-colors hidden xl:block" />
 			</a>
 		</section>
 	)

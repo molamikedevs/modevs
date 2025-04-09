@@ -23,11 +23,11 @@ const Header = () => {
 	// Helper function to check if nav item is active
 	const isActive = useCallback(
 		(href: string) => {
-			// Special case for home page
-			if (href === '#home') {
-				return location.pathname === '/' && window.scrollY < 50
+			// Check if the href is a hash link (like #about)
+			if (href.startsWith('#')) {
+				return location.hash === href
 			}
-			return location.pathname === href || location.hash === href
+			return location.pathname === href
 		},
 		[location.pathname, location.hash]
 	)
@@ -62,8 +62,10 @@ const Header = () => {
 								<a
 									href={item.href}
 									className={cn(
-										'px-4 py-2 rounded-md hover:bg-muted/50 transition-colors duration-300',
-										isActive(item.href) && 'bg-muted/80 font-medium'
+										'px-4 py-2 rounded-md transition-colors duration-300',
+										'hover:bg-muted/50 dark:hover:bg-muted/80',
+										isActive(item.href) &&
+											'bg-primary/20 text-primary dark:bg-primary/30 dark:text-primary font-medium'
 									)}>
 									{item.name}
 								</a>

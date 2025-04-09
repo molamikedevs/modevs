@@ -1,7 +1,6 @@
-
-import { useEffect, useRef, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Command, X } from "lucide-react";
+import { useEffect, useRef, useState } from 'react'
+import { Button } from '@/components/ui/button'
+import { Command, X } from 'lucide-react'
 import { CommandResponse } from '@/types'
 
 const TerminalEasterEgg = () => {
@@ -180,8 +179,8 @@ const TerminalEasterEgg = () => {
 
 			{isOpen && (
 				<div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-					<div className="bg-cyber w-full max-w-2xl h-[500px] rounded-lg border border-border/50 flex flex-col overflow-hidden">
-						<div className="flex items-center justify-between p-2 bg-cyber-light">
+					<div className="bg-cyber dark:bg-cyber w-full max-w-2xl h-[500px] rounded-lg border border-border/50 flex flex-col overflow-hidden">
+						<div className="flex items-center justify-between p-2 bg-cyber-light dark:bg-cyber-light">
 							<div className="flex items-center gap-1.5">
 								<div className="size-3 bg-red-500 rounded-full" />
 								<div className="size-3 bg-yellow-500 rounded-full" />
@@ -199,11 +198,11 @@ const TerminalEasterEgg = () => {
 
 						<div
 							ref={terminalRef}
-							className="flex-1 p-4 font-mono text-sm overflow-auto bg-gradient-to-br from-cyber to-space">
+							className="flex-1 p-4 font-mono text-sm overflow-auto bg-gradient-to-br from-cyber/20 to-space/20 dark:from-cyber dark:to-space text-foreground dark:text-foreground/90">
 							{output.map((item, index) => (
 								<div key={index} className="mb-4">
 									{item.command && (
-										<div className="flex gap-2 text-muted-foreground">
+										<div className="flex gap-2 text-muted-foreground dark:text-muted-foreground">
 											<span className="text-electric">$</span>
 											<span>{item.command}</span>
 										</div>
@@ -212,7 +211,9 @@ const TerminalEasterEgg = () => {
 										<div
 											key={i}
 											className={`ml-4 ${
-												res.isError ? 'text-red-400' : 'text-foreground/90'
+												res.isError
+													? 'text-red-600 dark:text-red-400'
+													: 'text-foreground dark:text-foreground/90'
 											}`}>
 											{res.text}
 										</div>
@@ -222,7 +223,7 @@ const TerminalEasterEgg = () => {
 
 							<form
 								onSubmit={handleCommand}
-								className="flex gap-2 text-muted-foreground">
+								className="flex gap-2 text-muted-foreground dark:text-muted-foreground">
 								<span className="text-electric">$</span>
 								<input
 									ref={inputRef}
@@ -230,7 +231,7 @@ const TerminalEasterEgg = () => {
 									value={command}
 									onChange={e => setCommand(e.target.value)}
 									onKeyDown={handleKeyDown}
-									className="flex-1 bg-transparent outline-none text-foreground caret-electric"
+									className="flex-1 bg-transparent outline-none text-foreground dark:text-foreground caret-electric"
 									autoFocus
 									autoComplete="off"
 									spellCheck="false"
@@ -244,4 +245,4 @@ const TerminalEasterEgg = () => {
 	)
 }
 
-export default TerminalEasterEgg;
+export default TerminalEasterEgg
