@@ -39,25 +39,23 @@ export const projects: Project[] = [
 	},
 	{
 		id: 3,
-		title: 'Quantum Commerce',
+		title: 'BrandNest',
 		description:
-			'A full-featured e-commerce platform with secure payments, inventory management, and a sleek user interface.',
+			'A website for a fictional company, BrandNest, that specializes in branding and design. The site features a modern layout, smooth animations, and a responsive design.',
 		tags: ['Full Stack', 'UI/UX'],
-		image:
-			'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=1000',
-		liveUrl: '#',
+		image: '/images/brand.png',
+		liveUrl: 'https://brandnest-site-builder.vercel.app/',
 		githubUrl: '#',
 	},
 	{
 		id: 4,
-		title: 'Lockers Task Manager',
+		title: 'Photography Portfolio',
 		description:
-			'A productivity app featuring kanban boards, time tracking, and collaboration tools.',
+			'A photography portfolio, that shows top clients and a book session cta, aiming to make it .',
 		tags: ['Frontend', 'Full Stack'],
-		image:
-			'https://images.unsplash.com/photo-1531403009284-440f080d1e12?q=80&w=1000',
-		liveUrl: '#',
-		githubUrl: '#',
+		image: '/images/med.png',
+		liveUrl: 'https://med-bee-concept.vercel.app/',
+		githubUrl: 'https://github.com/molamikedevs/photo-muse-portfolio.git',
 	},
 	{
 		id: 5,
