@@ -21,7 +21,7 @@ export const projects: Project[] = [
 		id: 1,
 		title: 'Admin Dashboard',
 		description:
-			'🚀 A modern Admin Dashboard built with Syncfusion components, featuring interactive charts, grids, calendars, and more. Currently, the app uses dummy data, but it will be upgraded in the future with full backend functionality.',
+			'A responsive admin dashboard featuring interactive charts, tables, and calendar tools. Built with Syncfusion UI components, the app offers a clean layout with plans for full backend integration.',
 		tags: ['Frontend', 'UI/UX'],
 		image: 'https://i.imgur.com/o1O9TJA.png',
 		liveUrl: 'https://admin-dashboard-bsjq.onrender.com',
@@ -31,7 +31,7 @@ export const projects: Project[] = [
 		id: 2,
 		title: 'Movie Trends',
 		description:
-			'🚀 A modern web application that displays the latest trending movies, their ratings, and the top five most searched movies. Powered by Appwrite for backend operations and the TMDb API for movie data.',
+			'A sleek movie-tracking app displaying trending titles, ratings, and top searches. Powered by Appwrite and TMDb API, it offers users a smooth and dynamic browsing experience.',
 		tags: ['Backend'],
 		image: 'https://i.imgur.com/DNKhZOz.png',
 		liveUrl: 'https://movies-app-4bz6.onrender.com',
@@ -51,7 +51,7 @@ export const projects: Project[] = [
 		id: 4,
 		title: 'Photography Portfolio',
 		description:
-			'A photography portfolio, that shows top clients and a book session cta, aiming to make it .',
+			'A clean and creative portfolio for a photographer, with sections for top clients and a booking CTA. Designed to engage visitors and highlight visual storytelling.',
 		tags: ['Frontend', 'Full Stack'],
 		image: '/images/med.png',
 		liveUrl: 'https://med-bee-concept.vercel.app/',
@@ -61,7 +61,7 @@ export const projects: Project[] = [
 		id: 5,
 		title: 'YuSocial',
 		description:
-			'A social media platform with real-time notification, comment on post, save posts, like and dislike posts, follow and unfollow user, infinite scrolling and personalized feeds with top creators.',
+			'A full-featured social app with real-time updates, comments, reactions, saved posts, and follow systems. It also includes infinite scrolling and a personalized feed.',
 		tags: ['Full Stack', 'Backend'],
 		image: 'https://i.imgur.com/MTiHWip.png',
 		liveUrl: 'https://social-app-henna-theta.vercel.app/',
@@ -71,13 +71,14 @@ export const projects: Project[] = [
 		id: 6,
 		title: 'Xora Landing Page',
 		description:
-			'Xora Landing Page is a sleek and modern React-based web page designed to showcase products, services, or businesses with an engaging user experience. The page is built with a focus on smooth animations, responsive design, and high performance.',
+			'A professional landing page for promoting products and services. Built with React and Tailwind, it features subtle animations and a responsive, mobile-first design.',
 		tags: ['UI/UX'],
 		image: 'https://i.imgur.com/MJh6U5A.png',
 		liveUrl: 'https://xora-git-master-molamikedevs-projects.vercel.app/',
 		githubUrl: 'https://github.com/molamikedevs/xora-landding-page.git',
 	},
 ]
+
 
 export const terminalLines = [
 	{ text: 'Loading personal profile...', delay: 400 },
